@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: webserver-deployment
+
+spec:
+  selector:
+     mathcLabels:
+        app: nginx
+  replicas: 2
+  template: 
+     metadata:
+       lables:
+         app: nginx 
+     spec:
+       containers:
+         - name: web
+           image: nginx:latest
+           ports:
+            - containerPort:80
+
